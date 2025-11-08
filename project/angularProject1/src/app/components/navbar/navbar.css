@@ -1,0 +1,36 @@
+.navbar {
+      background-color: #e9ecf2;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .navbar-brand img {
+      width: 130px;
+    }
+    .search-box {
+      flex: 1;
+      max-width: 600px;
+    }
+    .search-box input {
+      border-radius: 0;
+      border: none;
+      height: 40px;
+    }
+    .search-box button {
+      border-radius: 0;
+      background-color: #ff9f00;
+      color: white;
+      border: none;
+      padding: 0 16px;
+    }
+    .nav-icons a {
+      color: rgb(15, 6, 6);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+    .nav-icons img {
+      width: 22px;
+      height: 22px;
+    }

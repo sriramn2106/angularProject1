@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    @for(product of products | paginate : {itemsPerPage:6,currentPage:p};track $index){
+      <div class="col-sm-3 card mx-3 my-3">
+          <app-product-assignment-item [product] = "product"></app-product-assignment-item> 
+      </div>
+    }
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mt-4">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

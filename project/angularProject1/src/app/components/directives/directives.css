@@ -1,0 +1,15 @@
+.employee {
+  width: 98%;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #555;
+  padding: 8px;
+}
+
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+}

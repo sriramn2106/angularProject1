@@ -1,0 +1,150 @@
+<h3 class="text-center">Let's Learn Pipes</h3>
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>This is name:{{myName}}</div>
+    <div>lowercase name:{{myName | lowercase}}</div>
+    <div>This is name:{{myName | uppercase}}</div>
+    <div>This is name:{{myName | titlecase}}</div>
+</div>
+
+<div class="border bordered-2 m-2 p-2">
+    <div>currency pipe:</div>
+    <div>{{cur|currency}}</div>
+    <div>{{cur|currency:'USD'}}</div>
+    <div>{{cur|currency:'USD':'code'}}</div>
+    <div>{{cur|currency:'USD':'symbol'}}</div>
+    <div>{{cur|currency:'INR'}}</div>
+    <div>{{cur|currency:'&euro;'}}</div>
+    <div>{{cur|currency:'&#xa5;'}}</div>
+
+</div>
+
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>{{dateObj | date : 'short' }}</div>
+    <div>{{dateObj | date : 'shortDate'}}</div>
+    <div>{{dateObj| date : 'mediumDate'}}</div>
+    <div>{{dateObj | date : 'longDate'}}</div>
+    <div>{{dateObj | date : 'fullDate'}}</div>
+    <div>{{dateObj | date : 'fullDate' | lowercase}}</div>
+    <div>{{dateObj | date : 'fullDate' | uppercase}}</div>
+    <div>{{dateObj | date:'shortTime'}}</div>
+    <div>{{dateObj |date : 'mediumTime'}}</div>
+    <div>{{dateObj|date : 'longTime'}}</div>
+    <div>{{dateObj|date:'fullTime'}}</div>
+    <div>{{dateObj|date:'dd-MM-yyyy'}}</div>
+    <div>{{dateObj | date : 'HH:mm' }}</div>
+    <div>{{ dateObj| date: "fullTime":"UTC" }}</div>
+</div>
+
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>number pipe:</div>
+    <div>{{12.8787846847738 | number:'3.2-5'}}</div>
+</div>
+
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>percent pipe:</div>
+    <div>{{ 2.56555 | percent}}</div>
+    <div>{{ 2.5 | percent: '2.1-5'}}</div>
+
+</div>
+
+
+<div class="border bordered-2 m-2 p-2">
+    <div>slice pipe:</div>
+    <div>{{numArr | slice: 2}}</div>
+    <div>{{numArr | slice: 2 :4}}</div>
+</div>
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>json pipe:: </div>
+    <div>{{user}}</div>
+    <div>{{user | json}}</div>
+</div>
+
+
+<div class="border bordered-2 rounded-2 m-2 p-2">
+    <div>keyvalue pipe:</div>
+     @for(user of user|keyvalue; track $index){
+        <div>{{user.key}} --{{user.value}}</div>
+     }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 1. Create a custom pipe(ordinal) which takes a number as input and returns in ordinal format
+   input : 21,22,23,24  output : 21st, 22nd , 23rd, 24th -->
+
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Custom Pipe(Ordinal)</div>
+  <div>Input:: <input [(ngModel)]="num" type="number" /></div>
+  <div>Output:: {{num | ordinal}}</div>
+</div>
+
+<!-- 
+2. create a custom pipe(Roman) which takes a number as input and returns its equivalent roman value
+   input :  4    8     9   
+   output : IV  VIII   IX  -->
+
+   
+
+
+<!-- 3. create a custom pipe called 'age' which takes a date as input and returns the age in years.
+   input : 04-06-2020
+   output : 5 years old -->
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>Custom age:</div>
+    <div>Enter Age:<input [(ngModel)] = "enterAge" type = "text" /></div>
+    <div>{{enterAge | age}}</div>
+</div>
+
+<!-- 4. declare an array of employee objects. display them in a table.
+   create a custom pipe 'Salutation' that will add 'mr. / miss.' before the employee name. -->
+
+
+
+<div>
+  <input type="text" [(ngModel)]="searchtext" placeholder="Search..." class="form-control mb-2">
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>eId</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Gender</th>
+        <th>Dept</th>
+        <th>Status</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of employees | search: searchtext; track emp.eId) {
+      <tr>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name | salutation: emp.gender }}</td>
+        <td>{{ emp.sal | currency }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.dept }}</td>
+        <td>{{ emp.status }}</td>
+        <td>{{ emp.role }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+

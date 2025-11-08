@@ -1,0 +1,169 @@
+<h3 class="text-center">Directives</h3>
+
+ <div class="border border-2 rounded-2 p-2 m-2">
+    <div>If-else before angular 17</div>
+    <div>
+        <input type="number" [(ngModel)]="num">
+    </div>
+    <div *ngIf="num%2==0">{{num}}is even</div>
+    <div *ngIf="num%2!=0">{{num}} is odd</div>
+</div> 
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <div>If Else after angular 17</div>
+    @if(num%2==0){
+    <div>{{num}}is even</div>
+    }@else{
+    <div>{{num}}is odd</div>
+    }
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Switch Case:</div>
+  @switch (num) {
+    @case (1) { <h1>Monday</h1> }
+    @case (2) { <h1>Tuesday</h1> }
+    @case (3) { <h1>Wednesday</h1> }
+    @case (4) { <h1>Thursday</h1> }
+    @case (5) { <h1>Friday</h1> }
+    @case (6) { <h1>Saturday</h1> }
+    @case (7) { <h1>Sunday</h1> }
+    @default { <h1>Not a Valid number</h1> }
+   }
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Car List using for</div>
+  <ol>
+    @for(car of cars;track $index){
+        <li>{{car}}</li>
+    }
+  </ol>
+</div>
+
+<table class="border border-2 p-2 m-2">
+
+    <thead><tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Salary</th>
+      <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        @for (emp of employees; track emp.id) {
+    <tr>
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.role }}</td>
+      <td>{{ emp.salary }}</td>
+      <td>{{ emp.status }}</td>
+    </tr>
+  }
+    </tbody>
+  
+</table>
+
+
+<!-- <form action="">
+  
+  @for(ta of tasks;track ta.id ){
+
+  <div class=" border border-2 p-2 m-2">
+    <input type="checkbox" id="taskId" name="taskId" value="Bike">
+    <label for="taskId"> {{ta.id}}</label><br>
+    <input type="checkbox" id="taskTitle" name="taskTitle" value="Car">
+    <label for="taskTitle"> {{ta.title}}</label><br>
+    <input type="checkbox" id="taskCompleted" name="taskCompleted" value="Boat">
+    <label for="taskCompleted"> {{ta.completed}}</label><br><br>
+    <input type="submit" value="Submit"><br>
+  </div>
+
+  }
+  
+</form> -->
+
+<!-- <div class="border border-2 rounded-2 p-2 m-2">
+  <div>1. Create an array of task objects, Display them with checkboxes.
+   When a checkbox is clicked, toggle completion status (use (change) binding).
+  </div>
+  @for(task of tasks;track $index ){ -->
+  <!-- <input type="checkbox" id="taskId" [checked]="task.completed" (change) = "toogleFunc(task)">
+  <label for="taskId"> {{task.id}}. {{task.title}} - {{task.completed}}</label><br> -->
+  
+      <!-- <input type="checkbox" [checked]="task.completed" (change)="toggleFunc(task)"/>
+      <div   [ngStyle]="{ 'text-decoration': task.completed ? 'line-through' : 'none'}">
+        {{ task.id }}. {{ task.title }} - {{ task.completed }}
+      </div>
+  
+  }
+</div> -->
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>
+    1. Create an array of task objects, display them with checkboxes.
+    When a checkbox is clicked, toggle completion status.
+  </div>
+
+  @for (task of filteredTasks; track task.id) {
+    <div >
+      <input   type="checkbox"  [checked]="task.completed" (change)="toggleFunc(task)"/>
+      <label class="form-check-label" [ngClass]="{ 'text-decoration-line-through': task.completed }">
+        {{ task.id }}. {{ task.title }} - {{ task.completed ? 'Completed' : 'Pending' }}
+      </label>
+    </div>
+  }
+</div>
+
+ <div class="border border-2 rounded-2 p-2 m-2">
+    <label for="filterSelect" class="form-label fw-bold">Filter Tasks:</label>
+    <select id="selectedFilter"  [(ngModel)]="selectedFilter" (change)="applyFilter()">
+      <option value="All">All</option>
+      <option value="Completed">Completed</option>
+      <option value="Pending">Pending</option>
+    </select>
+  </div>
+
+
+  <div class="border border-2 rounded-3 p-3 m-3">
+  <h5 class ="text-center"> Shopping Cart</h5>
+
+  @for (item of cartItems; track item.id) {
+    <div>
+      <div>
+        <h5>{{ item.name }}</h5>
+        <div>{{ item.price }} each</div>
+      </div>
+
+      <div>
+        <span>quantity - {{ item.qty }}</span>
+        <button class="btn btn-danger mx-2" (click)="decQuantity(item)">-</button>
+        <button class="btn btn-success"(click)="inQuantity(item)">+</button>
+      </div>
+
+      <div>
+        {{ item.price * item.qty }}
+      </div>
+    </div>
+  }
+
+  <div>
+    <h5>Total: {{ getTotal() }}</h5>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="border border-2 rounded-2 p-2 m-2">
+  <div>a. Display Salary in green  if salary > 50000, else Display Salary in red, using [ngStyle]</div>
+  @for(emp of employees;track emp.id){
+    <div [ng]></div>
+  }
+
+</div> -->
+
+
+

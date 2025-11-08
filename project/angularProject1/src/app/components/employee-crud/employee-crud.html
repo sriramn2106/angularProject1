@@ -1,0 +1,36 @@
+<div class="border border-2 rounded-2 m-2 p-2">
+    <button class="btn btn-primary float-end  mx-2 my-2" ><fa-icon [icon]="faUserPlus"></fa-icon></button>
+<table class ="table table-bordered border border-3">
+    <thead>
+        <tr class ="border border-3">
+            <th>EId</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees;track emp.eId){
+            <tr class ="border border-3">
+            <td>{{emp.eId}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.sal}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.dept}}</td>
+            <td>{{emp.status}}</td>
+            <td>{{emp.role}}</td>
+            <td>
+                <button class="btn btn-danger mx-2" (click)="onClickDelete(emp)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                <button class="btn btn-primary mx-2" ><fa-icon [icon]="faEye"></fa-icon></button>
+
+            </td>
+        </tr>
+        }
+        
+    </tbody>
+</table>
+</div>

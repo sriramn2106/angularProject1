@@ -1,0 +1,33 @@
+
+<h3 class="text-center">User List from ts file</h3>
+
+<div class="container">
+    <div class="row">
+        @for(user of users | paginate: { itemsPerPage: 4, currentPage: p}; track $index){
+            <div class="col-sm-3">
+                <div class="card text-center my-2">
+                <img src="data:image/png;base64,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" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}</h5>
+                    <p class="card-text">{{user.name}}</p>
+                    <p class="card-text">
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                        {{user.email}}</p>
+                    <p class="card-text">
+                        <fa-icon [icon]="faPhone"></fa-icon>
+                        {{user.phone}}</p>
+                    <p class="card-text">{{user.address.city}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class = 'row'>
+        <div class="col-sm-6 offset-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        
+
+    </div>
+</div>

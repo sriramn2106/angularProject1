@@ -1,0 +1,200 @@
+<style>
+    img{
+        border: 2px solid rgb(214, 128, 9);
+        margin: 5px;
+
+        width: 200px;
+        height:200px;   
+
+
+    }
+</style>
+<h3 class="text-center">let's Learn Angular</h3>
+<div class="border border-2 rounded-2 p-2 m-2" style="background-color: rgb(238, 233, 231);">
+    <div>Name is :: {{myName}}</div>
+    <div>Name is ::<span [innerText]="myName"></span></div>
+    <img [src]="img_url" alt="">
+    <img src = "{{img_url}}" alt ="">
+    <img bind-src = "img_url">
+    
+    <div >
+         <input type="text" value = "{{myName}}" />
+        <input type="text" [value] = "myName" class = "mx-2" />
+         <input type="text" bind-value = "myName" />
+         <div class ='m-2'>
+            <input type="text" [(ngModel)] = "myName" class = "mx-2" />
+         </div>
+         
+    </div >
+
+    <div class  = 'm-1'>
+        <button class = "btn btn-primary" disabled = 'true'>Click me</button>
+        <button class = "btn btn-primary mx-2" disabled = "{{flag}}">Click me</button>
+        <button class = "btn btn-primary mx-2" [disabled] = "flag">Click me</button>
+        <button class = "btn btn-primary mx-2" bind-disabled = "flag">Click me</button>
+
+        <button class ="btn btn-primary" (click) = "toogleFlag()">Toogle Flag</button>
+
+        
+    </div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <table class = 'table table-bordered'>
+        <tbody>
+        <tr>
+            <th >Product Information</th>
+            <th [attr.colspan]="col_span_value">Price</th>
+        </tr>
+        <tr>
+            <td>Product A</td>
+            <td>Description A</td>
+            <td>$10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+    <table class = 'table table-bordered'>
+        <tbody>
+        <tr>
+            <th >Product Information</th>
+            <th colSpan="col_span_value">Price</th>
+        </tr>
+        <tr>
+            <td>Product A</td>
+            <td>Description A</td>
+            <td>$10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <h4>Add 2 numbers using 2-way binding</h4>
+    <input input="number" [(ngModel)]= "num1" />
+    <input input="number" [(ngModel)]= "num2" />
+    <p>Addition of {{num1}} & {{num2}} is {{num1+num2}}</p>
+
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <h4>Add 2 numbers using 2-way binding</h4>
+    <input input="number" #n1 />
+    <input input="number" ref-n2 class="mx-2"/>
+    <button class="btn btn-primary" (click)="addition(n1.value,n2.value)">add</button>
+    <div>Addition result is: {{addResult}}</div>
+
+</div>
+
+
+
+<!-- assignment:1-->>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <div>1. Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph</div>
+    <h3 [hidden] = 'hiddenValue'>this paragraph will hide on clicking on toogle button</h3>
+    <button class="btn btn-primary" (click) = hiddenParagraph()>Show/Hide</button>
+</div>
+
+
+ <div class="border border-2 rounded-2 m-2 p-2">
+    <div>2. Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters.</div>
+    <div>
+        <input type="text" maxlength="100" [(ngModel)] = "input1" placeholder="you can type upto 100 characters">
+        <p>input:{{input1}}</p>
+    </div>
+</div> 
+
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <div >3.Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a div</div>
+
+    
+    <select id="stateName" #selectedState>
+        <option value="" disabled selected>Select a state</option>
+        <option value="california">California</option>
+        <option value="texas">Texas</option>
+        <option value="florida">Florida</option>
+        <option value="new-york">New York</option>
+        <option value="illinois">Illinois</option>
+        <option value="pennsylvania">Pennsylvania</option>
+        <option value="ohio">Ohio</option>
+        <option value="georgia">Georgia</option>
+        <option value="north-carolina">North Carolina</option>
+        <option value="michigan">Michigan</option>
+    </select>
+
+    <button class = "btn btn-primary mx-2" (click)="getState(selectedState.value)">Get Selected State</button>
+
+    <div>selected state : {{stateN}}</div>
+
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <div >3.Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a div</div>
+
+    
+    <select id="stateName" [(ngModel)] = "selectedS">
+        <option value="" disabled selected>Select a state</option>
+        <option value="california">California</option>
+        <option value="texas">Texas</option>
+        <option value="florida">Florida</option>
+        <option value="new-york">New York</option>
+        <option value="illinois">Illinois</option>
+        <option value="pennsylvania">Pennsylvania</option>
+        <option value="ohio">Ohio</option>
+        <option value="georgia">Georgia</option>
+        <option value="north-carolina">North Carolina</option>
+        <option value="michigan">Michigan</option>
+    </select>
+
+
+    <div>selected state : {{selectedS}}</div>
+
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <div>4. have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations</div>
+    <input input="number" #n3 />
+    <input input="number" ref-n4 class="mx-2"/>
+    <select id="operation" #operat>
+        <option value="" disabled selected>Select a arithmetic operator</option>
+        <option value="add">+</option>
+        <option value="minus">-</option>
+        <option value="multiply">*</option>
+        <option value="division">/</option>
+    </select>
+
+    <button class="btn btn-primary mx-2" (click)="arth(operat.value,n3.value,n4.value)">result</button>
+
+    <div>selected operator is {{selectedOp}} , result :{{arthResult}}</div>
+</div>
+
+
+<div class="border border-2 rounded-2 m-2 p-2"> 
+    <div>5. create a input box, toggle the type of that input box to (text/password)</div>
+
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2"> 
+    <div>6. create a counter example with 3 controls(increment,decrement,reset)</div>
+
+
+</div>
+
+<div class="border border-2 rounded-2 m-2 p-2"> 
+    <div>7. Have a toggle button and control Dark/Light theme of a page.</div>
+</div>
+
+
+<div class="border border-2 rounded-2 m-2 p-2">
+    <div>8. Temperature Converter (celcius to fahrenheit)</div>
+    <input type="number" #celcius  />
+    <button class = "btn btn-primary mx-2" (click) = "celciusToFahrenheit(celcius.value)">Convert</button>
+    <div>
+        <p>{{celcius.value}} degrees celcius is equal to {{fahrenheitResult}} degrees fahrenheit</p>
+    </div>
+     
+</div>

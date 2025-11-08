@@ -1,0 +1,7 @@
+.inactive {
+  opacity: 0.5;
+}
+.manager {
+  color: blue;
+  font-weight: bold;
+}

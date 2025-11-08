@@ -1,0 +1,59 @@
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div> <pre>
+    <h3>Question.4</h3>
+    a. Display Salary in green  if salary > 50000, else Display Salary in red, using [ngStyle]
+    b. Apply a CSS class "inactive" to employees whose status is "Inactive" using [ngClass]
+    c. Add bold font and blue color only for employees whose role is "Manager" using [ngClass]
+    d. Apply a different row background color based on employee role:
+            Manager = lightyellow , Developer = lightblue , Tester = lightpink
+    e. Show salary in a badge style with dynamic color
+        Green if salary > 70,000 , Orange if between 40,000–70,000, Red if < 40,000</pre></div> 
+
+  <div class="border bordered-2 m-2 p-2">
+  <h3 class="text-center mb-2">Question 4</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>eId</th>
+        <th>Name</th>
+        <th>Sal</th>
+        <th>Gender</th>
+        <th>Dept</th>
+        <th>Status</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of employees;track $index){
+      <tr>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td class="badge mt-2"
+          [ngStyle]="{ color: emp.sal > 50000 ? 'green' : 'red' }"
+          [ngClass]="{
+            'bg-success': emp.sal > 70000,
+            'bg-warning': emp.sal >= 40000 && emp.sal <= 70000,
+            'bg-danger': emp.sal < 40000
+          }"
+        >
+          {{ emp.sal }}
+        </td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.dept }}</td>
+        <td [ngClass]="{ 'inactive': emp.status === 'Inactive' }">{{ emp.status }}</td>
+        <td 
+          [ngClass]="{ 'manager': emp.role === 'Manager' }"
+          [ngStyle]="{
+            'background-color':
+              emp.role === 'Manager'? 'lightyellow': emp.role === 'Developer'? 'lightblue': 'lightpink'
+          }"
+        >
+          {{ emp.role }}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
