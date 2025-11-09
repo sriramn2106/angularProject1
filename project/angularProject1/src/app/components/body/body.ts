@@ -11,13 +11,15 @@ import { Assignment2 } from '../assignment2/assignment2';
 import { EmployeeCRUD } from '../employee-crud/employee-crud';
 import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ProductsAssignment } from '../products-assignment/products-assignment';
+import { EmployeeCrudAssignment } from '../employee-crud-assignment/employee-crud-assignment';
 
 @Component({
   selector: 'app-body',
   imports: [
-    ProductsAssignment
+    EmployeeCrudAssignment
+    //ProductsAssignment
     //PipesDemo
-    //EmployeeCRUD
+    // EmployeeCRUD
     //Assignment2
     //Assignment
     //UserList

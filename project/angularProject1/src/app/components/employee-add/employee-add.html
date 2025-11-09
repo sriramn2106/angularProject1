@@ -1,0 +1,24 @@
+<div class="card p-3">
+  <h5 class="mb-3 text-center">Add Employee</h5>
+  <form (ngSubmit)="addEmployee()">
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Name" class="form-control" required>
+    </div>
+    <div class="mb-2">
+      <input type="number" [(ngModel)]="salary" name="salary" placeholder="Salary" class="form-control" required>
+    </div>
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="gender" name="gender" placeholder="Gender" class="form-control">
+    </div>
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="dept" name="dept" placeholder="Department" class="form-control">
+    </div>
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="status" name="status" placeholder="Status" class="form-control">
+    </div>
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="role" name="role" placeholder="Role" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Add</button>
+  </form>
+</div>

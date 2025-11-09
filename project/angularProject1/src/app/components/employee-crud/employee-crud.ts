@@ -4,10 +4,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faTrash,faEye,faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
+import { EmployeeTable } from '../employee-data/employee-data';
+import { EmployeeAdd } from '../employee-add/employee-add';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-employee-crud',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule,EmployeeTable,EmployeeAdd,CommonModule],
   templateUrl: './employee-crud.html',
   styleUrl: './employee-crud.css',
 })
