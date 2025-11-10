@@ -65,7 +65,6 @@ export class EmployeeCrudAssignment {
   }
   
   deleteEmployee(empId: number) {
-    console.log("deleting ",empId)
     this.employees = this.employees.filter(e => e.eId !== empId);
   }
 

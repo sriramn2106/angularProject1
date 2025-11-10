@@ -1,7 +1,0 @@
-table {
-  table-layout: fixed;
-  word-wrap: break-word;
-}
-th, td {
-  white-space: nowrap;
-}

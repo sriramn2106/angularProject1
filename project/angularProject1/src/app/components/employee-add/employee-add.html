@@ -5,7 +5,7 @@
       <input type="text" [(ngModel)]="name" name="name" placeholder="Name" class="form-control" required>
     </div>
     <div class="mb-2">
-      <input type="number" [(ngModel)]="salary" name="salary" placeholder="Salary" class="form-control" required>
+      <input type="number" [(ngModel)]="sal" name="sal" placeholder="Salary" class="form-control" required>
     </div>
     <div class="mb-2">
       <input type="text" [(ngModel)]="gender" name="gender" placeholder="Gender" class="form-control">
@@ -19,6 +19,6 @@
     <div class="mb-3">
       <input type="text" [(ngModel)]="role" name="role" placeholder="Role" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary w-100">Add</button>
+    <button type="submit" class="btn btn-primary w-100"><fa-icon [icon]="faUserPlus"></fa-icon></button>
   </form>
 </div>

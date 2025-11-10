@@ -1,39 +1,14 @@
 
-
-
-<div class="container mt-3">
-  <div class="row g-3">
-    <div class="col-md-6">
-      <div class="border border-2 rounded-2 p-3">
-        <table class="table table-bordered table-striped table-sm text-center align-middle">
-          <thead class="table-light">
-            <tr>
-              <th>EId</th>
-              <th>Name</th>
-              <th>Salary</th>
-              <th>Gender</th>
-              <th>Department</th>
-              <th>Status</th>
-              <th>Role</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            @for (employee of employees; track $index) {
-              <app-employee-data [employee]="employee" (onDelete)="deleteEmployee($event)"></app-employee-data>
-            }
-            </tr>
-          </tbody>
-        </table>
+<div class="container">
+  <div class="row border border-2 rounded-2 p-2 text-center">
+  
+    <div class="row">
+      <div class="col-sm-8 border border-2 rounded-2 p-2">
+        <app-employee-data [employee]="employees" (onDelete)="deleteEmployee($event)"></app-employee-data>
       </div>
-    </div>
-    </div>
-</div>
-
-    <div class="col-md-6">
-      <div class="border border-2 rounded-2 p-3 h-100 d-flex justify-content-center align-items-center">
+      <div class="col-sm-4 border border-2 rounded-2 p-2">
         <app-employee-add (onAdd)="addEmployee($event)"></app-employee-add>
       </div>
     </div>
-  
+  </div>
+</div>
