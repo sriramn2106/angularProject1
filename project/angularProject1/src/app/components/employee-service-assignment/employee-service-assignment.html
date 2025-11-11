@@ -1,0 +1,41 @@
+
+<div class="container border border-2 rounded-2 p-2 m-2">
+    <div>
+        <select [(ngModel)]="selectedCategory" (change)="loadDetails()">
+            <option value = "allEmployees">allEmployees</option>
+            <option value = "maleEmployees">maleEmployees</option>
+            <option value  = "femaleEmployees">femaleEmployees</option>
+        </select>
+    </div>
+<div class ="border border-2 rounded-2 p-2 m-2">
+<table class ="table table-bordered border border-3">
+    <thead>
+        <tr class ="border border-3">
+            <th>EId</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employee_data;track emp.eId){
+            <tr class ="border border-3">
+            <td>{{emp.eId}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.sal}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.dept}}</td>
+            <td>{{emp.status}}</td>
+            <td>{{emp.role}}</td>
+            
+        </tr>
+        }
+        
+    </tbody>
+</table>
+</div>
+
+</div>

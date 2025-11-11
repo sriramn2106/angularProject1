@@ -1,18 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { EmployeeAdd } from '../employee-add/employee-add';
-import { EmployeeTable } from '../employee-data/employee-data';
-
-@Component({
-  selector: 'app-employee-crud-assignment',
-  imports: [EmployeeTable,EmployeeAdd,CommonModule],
-  templateUrl: './employee-crud-assignment.html',
-  styleUrl: './employee-crud-assignment.css',
-})
-export class EmployeeCrudAssignment {
-
-
-   employees:any[] = [
+export default[
     {
       eId: 101,
       name: 'Sanjay',
@@ -59,14 +45,3 @@ export class EmployeeCrudAssignment {
       role: 'Manager',
     },
   ];
-
-  addEmployee(newEmp: any) {
-    const code = Math.floor(100000 + Math.random() * 900000);
-    this.employees.push({ ...newEmp, eId: code });
-  }
-  
-  deleteEmployee(empId: number) {
-    this.employees = this.employees.filter(e => e.eId !== empId);
-  }
-
-}
