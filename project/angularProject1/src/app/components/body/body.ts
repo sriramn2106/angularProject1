@@ -13,11 +13,22 @@ import { PipesDemo } from '../pipes-demo/pipes-demo';
 import { ProductsAssignment } from '../products-assignment/products-assignment';
 import { EmployeeCrudAssignment } from '../employee-crud-assignment/employee-crud-assignment';
 import { EmployeeServiceAssignment } from '../employee-service-assignment/employee-service-assignment';
+import { CommentList } from '../comment-list/comment-list';
+import { StocksList } from '../stocks-list/stocks-list';
+import { CommentComponent } from '../comment-component/comment-component';
+import { EmployeeModelService } from '../employee-model-service/employee-model-service';
+import { Crudcomponent } from '../crudcomponent/crudcomponent';
 
 @Component({
   selector: 'app-body',
   imports: [
-    EmployeeServiceAssignment
+    Crudcomponent
+    //EmployeeModelService
+    //CommentComponent
+    //CommentList
+    //StocksList
+    //CommentList
+    //EmployeeServiceAssignment
     //EmployeeCrudAssignment
     //ProductsAssignment
     //PipesDemo

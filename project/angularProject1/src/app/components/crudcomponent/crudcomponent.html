@@ -1,1 +1,106 @@
-<p>crudcomponent works!</p>
+<div class="container">
+  <!-- <div class="row border border-2 rounded-2 p-2 text-center"> -->
+    <div class="row">
+      <div class="col-sm-8 border border-2 rounded-2 p-2">
+        <table class="table table-bordered border border-3">
+          <thead>
+            <tr class="border border-3">
+              <th>Eid</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Gender</th>
+              <th>Salary</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(emp of employee;track emp.id){
+            <tr class="border border-2">
+              <td>{{ emp.id }}</td>
+              <td>{{ emp.firstName }}</td>
+              <td>{{ emp.lastName }}</td>
+              <td>{{ emp.gender }}</td>
+              <td>{{ emp.sal }}</td>
+              <td>{{ emp.email }}</td>
+              <td>
+                <button class="btn btn-sm btn-danger mx-2" (click)="delete(emp.id)">delete
+                </button>
+                <button class="btn btn-sm btn-primary" (click)="editEmployee(emp)">edit
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4 border border-2 rounded-2 p-2">
+        <div class="card p-3">
+          <h5 class="mb-3 text-center">Add Employee</h5>
+          <form >
+             <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="id"
+                name="id"
+                placeholder="ID"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="firstName"
+                name="firstName"
+                placeholder="First Name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="gender"
+                name="gender"
+                placeholder="Gender"
+                class="form-control"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="sal"
+                name="sal"
+                placeholder="Salary"
+                class="form-control"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                [(ngModel)]="email"
+                name="email"
+                placeholder="Email"
+                class="form-control"
+              />
+            </div>
+            <button type="button" class="btn btn-primary mx-2"  (click)="addEmployee()">
+              Add Employee</button>
+            <button type="button" class="btn btn-primary mx-2" (click)="updateEmployee()">
+              Update Employee</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+</div>
